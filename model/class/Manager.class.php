@@ -78,6 +78,83 @@ class Manager extends Connection{
 
 
 
+	////////////////////
+	//é igual o anterior, a unica diferenca é q eh usado o LIKE 
+	public function select_like($table,$fields,$filters,$extra=""){
+
+		$pdo = parent::getCon();
+
+		try{
+
+			$sql = "SELECT ";
+
+			if($fields != null){
+				$sql .= implode(",", $fields);
+
+			} else{
+				$sql .= "* ";
+			}
+
+			$sql .= "FROM $table ";
+
+
+			if($filters != null){
+				$sql .= "WHERE ";
+				
+				//UNICA DIFERENCA AQUI
+				foreach ($filters as $key => $value) {
+					$sql .= "$key LIKE :$key AND ";
+				}
+
+				$sql = substr($sql, 0, -4);
+
+			}
+
+
+			$sql .= $extra;
+
+			$stmt = $pdo->prepare($sql);
+
+			if($filters != null){
+				
+				foreach ($filters as $key => $value) {
+					$filters[$key] = filter_var($value);
+				}
+
+
+				foreach ($filters as $key => $value) {
+					$stmt->bindValue(":$key",$value,PDO::PARAM_STR);
+				}
+			}
+
+			$stmt->execute();
+
+			$data;
+
+			if($stmt->rowCount()){
+				while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
+					$data[] = $result;
+				}
+
+				return $data;
+			} else{
+
+				return false;
+			}	
+
+
+		} catch(Exception $e){
+			$e->getMessage();
+		}
+
+		parent::closeCon();
+
+	} //fim select
+
+
+///////////////////////
+
+
 
 	public function insert($table,$data){
 
