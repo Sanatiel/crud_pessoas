@@ -20,11 +20,7 @@
 
 	<br>
 
-	<label>Foto (opcional)</label>
-	<input type="file" name="foto"  class="form-control">
-
-	<br>
-
+	
 	<button class="btn btn-success" > <span class="glyphicon glyphicon-ok"> <strong style="font-family:arial;">Cadastrar</strong> </span>  </button>
 
 	<button class="btn btn-primary" type="reset"> <span class="glyphicon glyphicon-erase"> <strong style="font-family:arial;">Limpar Campos</strong> </span>  </button>

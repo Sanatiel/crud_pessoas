@@ -237,7 +237,7 @@ class Manager extends Connection{
 
 
 
-	public function update($table,$data,$filters,$extra){
+	public function update($table,$data,$filters,$extra=""){
 
 		$pdo = parent::getCon();
 
@@ -262,6 +262,8 @@ class Manager extends Connection{
 			$sql = "UPDATE $table SET $new_values WHERE $filters_up";
 
 			$sql .= $extra;
+
+			$stmt = $pdo->prepare($sql);
 
 			foreach ($data as $key => $value) {
 				$data[$key] = filter_var($value);

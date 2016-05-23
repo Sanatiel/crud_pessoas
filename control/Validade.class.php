@@ -61,6 +61,10 @@
 				 $pageTitle = "Listagem de Pessoas";
 			}
 
+			if($opt == 'edit_people'){
+				 $pageTitle = "Edição de Pessoas";
+			}
+
 			return $pageTitle;
 		} 
 

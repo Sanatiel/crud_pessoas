@@ -41,11 +41,11 @@ if(move_uploaded_file($imagem['tmp_name'], $nomeFinal)){
 
 
 
-if($people['nome_pessoa'] == ""){
+if($people['nome_pes'] == ""){
 	header("location: ".base_url()."?error=nome_empty");
 }
 
-if($people['nome_pessoa'] == " "){
+if($people['nome_pes'] == " "){
 	header("location: ".base_url()."?error=nome_empty");
 }
 

@@ -167,7 +167,7 @@ $list_pes = $man->select_like("pessoas",null,$filters,$extra);
 				echo '<td>',$key['nome_pes'],'</td>';
 				echo '<td>',$key['email_pes'],'</td>';
 				echo '<td>',$key['tel_pes'],'</td>';
-				echo '<td><a href="" class="btn btn-md btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>   <button type="button" class="btexclui btn btn-md btn-danger" value="',$key['cod_pes'],'"><span class="glyphicon glyphicon-trash"></span></button>  </td>';
+				echo '<td><a href="?opt=edit_people&id=',$key['cod_pes'],'" class="btn btn-md btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>   <button type="button" class="btexclui btn btn-md btn-danger" value="',$key['cod_pes'],'"><span class="glyphicon glyphicon-trash"></span></button>  </td>';
 			//	echo '<td><a href="'.base_url().'/view/getImg.php?PicNum=',$key['cod_pes'],'">vergoto</a></td>';
 			//	echo '<td><img src="',base_url(),'/view/getImg.php?PicNum=2"></td>';
 				echo '</tr>';

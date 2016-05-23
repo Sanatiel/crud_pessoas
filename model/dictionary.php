@@ -6,7 +6,8 @@
 		'error'=> "Erro 404 - Informação não encontrada",
 		'nome_empty'=> "Preencha o campo nome",
 		'user_created'=> "Pessoa cadastrada com sucesso",
-		'user_deleted'=>"Pessoa deletada com sucesso",
+		'user_deleted'=> "Pessoa deletada com sucesso",
+		'user_updated'=> "Dados da pessoa atualizados com sucesso",
 
 
 
