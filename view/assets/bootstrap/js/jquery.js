@@ -10458,14 +10458,51 @@ $(function(){
 //////////////////CRUUUDD
 
 $(document).ready(function(){
-	$('#detail_people').on('click',function(){
+/*	$('#detail_people').on('click',function(){
 		var $id = $('#idec').text();
 		alert($id);
 
 	});
+*/
+
+	//comando jquery para exclusao. Nos botoes com a class btexclui vai ter um evento de click
+//ao clicar vai usar o this para alterar o data-toggle e data-target apenas do button q ta sendo clicado
+//enviando para a caixa de modal, vai tbm, com o this, armazenar o val(), q contem o id do cliente a ser excluido,
+// apenas do button q ta sendo clicado, numa var $r
+//por ultimo vai setar essa var com o id do cliente ao elemento com id=ex, q eh o input hidden q vai
+//mandar a informacao do id a ser excluido pro arquivo delet.cli
+
+
 
 
 });
+
+
+
+
+$(function(){
+		
+		$('.btexclui').on('click',function(){
+
+		$(this).attr("data-toggle","modal");
+		$(this).attr("data-target","#exclui");
+		var $r = $(this).val();
+		$('#ex').val($r);
+
+		});
+
+
+		$('#confdelpes').on('click',function(){
+			
+			$('form').attr("action","control/control_del_people.php");
+			$('form').submit();
+
+		});
+
+
+
+});
+
 
 
 

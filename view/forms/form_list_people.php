@@ -138,7 +138,7 @@ $list_pes = $man->select_like("pessoas",null,$filters,$extra);
 	<button class="btn btn-success">Pesquisar</button>
 
 
-	<!-- esse input vai mandar o id do cliente/servico/func a ser excluido -->
+	<!-- esse input vai mandar o id do cliente/servico/func a ser excluido, ele sera preenchido via Jquery quando o botao de excluir for clicado -->
 	<input type="text" hidden value="" name="exclu" id="ex">
 
 	<br>
@@ -167,7 +167,7 @@ $list_pes = $man->select_like("pessoas",null,$filters,$extra);
 				echo '<td>',$key['nome_pes'],'</td>';
 				echo '<td>',$key['email_pes'],'</td>';
 				echo '<td>',$key['tel_pes'],'</td>';
-				echo '<td><a href="" class="btn btn-md btn-primary"><span class="glyphicon glyphicon-pencil"></span></a> <button class="btn btn-md btn-danger"><span class="glyphicon glyphicon-trash"></span></button>  </td>';
+				echo '<td><a href="" class="btn btn-md btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>   <button type="button" class="btexclui btn btn-md btn-danger" value="',$key['cod_pes'],'"><span class="glyphicon glyphicon-trash"></span></button>  </td>';
 			//	echo '<td><a href="'.base_url().'/view/getImg.php?PicNum=',$key['cod_pes'],'">vergoto</a></td>';
 			//	echo '<td><img src="',base_url(),'/view/getImg.php?PicNum=2"></td>';
 				echo '</tr>';
@@ -196,3 +196,33 @@ $list_pes = $man->select_like("pessoas",null,$filters,$extra);
 	
 
 </form>
+
+
+
+
+<!-- DIV PARA MODAL EXCLUSAO-->
+<div class="modal fade text-center" id="exclui">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+
+			<div class="modal-header">
+				<h3 class="modal-title" > Atenção! Este processo irá apagar permanentemente os dados da pessoa </h4>
+				<hr>
+				<h4 class="modal-title" > Confirma a exclusão da pessoa? </h4>
+			</div>	
+
+			<div class="modal-body text-center">
+				
+					
+					<!-- type button para opcao de cancelar para nao submitar, data-dismiss para sair do modal ao clicar -->
+					<button type="button" class="btn btn-default" data-dismiss="modal"> Cancelar </button>
+
+					<button  id="confdelpes" class="btn btn-danger"> Confirmar</button>
+				
+				
+			</div>
+
+		
+		</div> <!-- content -->
+	</div> <!-- dialog -->
+</div> <!-- modal fade-->
