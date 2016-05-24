@@ -16,7 +16,7 @@ $filter['cod_pes'] = $_POST['exclu'];
 
 $man->delete("pessoas",$filter);
 
-header("location: ".base_url()."/?opt=list_people&success=user_deleted");
+header("location: ".base_url()."/?success=user_deleted");
 
 
 

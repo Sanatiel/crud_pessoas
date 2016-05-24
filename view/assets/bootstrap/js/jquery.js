@@ -10465,12 +10465,7 @@ $(document).ready(function(){
 	});
 */
 
-	//comando jquery para exclusao. Nos botoes com a class btexclui vai ter um evento de click
-//ao clicar vai usar o this para alterar o data-toggle e data-target apenas do button q ta sendo clicado
-//enviando para a caixa de modal, vai tbm, com o this, armazenar o val(), q contem o id do cliente a ser excluido,
-// apenas do button q ta sendo clicado, numa var $r
-//por ultimo vai setar essa var com o id do cliente ao elemento com id=ex, q eh o input hidden q vai
-//mandar a informacao do id a ser excluido pro arquivo delet.cli
+	
 
 
 
@@ -10481,7 +10476,14 @@ $(document).ready(function(){
 
 
 $(function(){
-		
+
+		//////// 
+		//comando jquery para exclusao. Nos botoes com a class btexclui vai ter um evento de click
+		//ao clicar vai usar o this para alterar o data-toggle e data-target apenas do button q ta sendo clicado
+		//enviando para a caixa de modal, vai tbm, com o this, armazenar o val(), q contem o id do cliente a ser excluido,
+		// apenas do button q ta sendo clicado, numa var $r
+		//por ultimo vai setar essa var com o id do cliente ao elemento com id=ex, q eh o input hidden q vai
+		//mandar a informacao do id a ser excluido pro arquivo delet.cli
 		$('.btexclui').on('click',function(){
 
 		$(this).attr("data-toggle","modal");
@@ -10490,16 +10492,25 @@ $(function(){
 		$('#ex').val($r);
 
 		});
+		
+		////////////
 
-
+		///botao com a id = #confdelpes (que sao os botoes de confirmacao de exclusao da caixa de modal) recebem o
+		// comando para confirmar a exclusao, mudando o action do form para q seja feito submit
+		//para o arquivo certo q tratara da exclusao
 		$('#confdelpes').on('click',function(){
 			
-			$('form').attr("action","control/control_del_people.php");
-			$('form').submit();
+		$('form').attr("action","control/control_del_people.php");
+		$('form').submit();
 
 		});
 
+		//////////////
+		//comando para ativar tooltip dos botoes nas listas
+		//vai selecionar todos os elementos q possuem o atributo data-toggle = tooltip e entao implementar a action tooltip()
+		$('[data-toggle="tooltip"]').tooltip();
 
+		//////////////
 
 });
 
